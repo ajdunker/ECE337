@@ -51,30 +51,30 @@ module tb_adder_16bit
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 1a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case 1a");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 1a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case 1a");
 		end
 		tmp_a = 16'b0;
 		tmp_b = 16'b0;
 		tmp_carry_in = 1'b1;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 1b!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case 1b");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 1b!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case 1b");
 		end
 		///////			TEST 2
 		tmp_a = 16'hFFF0;
@@ -82,30 +82,30 @@ module tb_adder_16bit
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 2a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 2a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		tmp_a = 16'hFFF0;
 		tmp_b = 16'h0002;
 		tmp_carry_in = 1'b1;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 2a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 2a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		///////			TEST 3
 		tmp_a = 16'h000A;
@@ -113,30 +113,30 @@ module tb_adder_16bit
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 3a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 3a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		tmp_a = 16'h000A;
 		tmp_b = 16'hFCB1;
 		tmp_carry_in = 1'b1;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 3b!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 3b!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		///////			TEST 4
 		tmp_a = 16'h0AB1;
@@ -144,30 +144,30 @@ module tb_adder_16bit
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 4a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 4a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case");
 		end
 		tmp_a = 16'h0AB1;
 		tmp_b = 16'h0C9A;
 		tmp_carry_in = 1'b1;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 4b!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 4b!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		///////			TEST 5
 		tmp_a = 16'h0008;
@@ -175,61 +175,247 @@ module tb_adder_16bit
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 5a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 5a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
 		tmp_a = 16'h0008;
 		tmp_b = 16'h0003;
 		tmp_carry_in = 1'b1;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 5b!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 5b!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		///////			TEST 6
+		tmp_a = 16'hFFFE;
+		tmp_b = 16'h0001;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'hFFFE;
+		tmp_a = 16'h0001;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
 		end
 		///////			TEST 6
 		tmp_a = 16'hFFFE;
 		tmp_b = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'hFFFE;
+		tmp_a = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
+		end
+		///////			TEST 6
+		tmp_a = 16'h0FFF;
+		tmp_b = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'h0FFF;
+		tmp_a = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
+		end
+				///////			TEST 6
+		tmp_a = 16'h0FFF;
+		tmp_b = 16'h0001;
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 6a!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 6a!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
 		end
-		tmp_b = 16'hFFFE;
+		tmp_b = 16'h0FFF;
+		tmp_a = 16'h0001;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
+		end
+		///////			TEST 7
+		tmp_a = 16'h1FFF;
+		tmp_b = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'h1FFF;
+		tmp_a = 16'h0000;
+		tmp_carry_in = 16'b1;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
+		end
+				///////			TEST 8
+		tmp_a = 16'h1FFF;
+		tmp_b = 16'h0001;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'h1FFF;
+		tmp_a = 16'h0001;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6b!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6b!");
+		end else begin
+			$error("Incorrect Carry Out value for test case");
+		end
+		///////			TEST 8
+		tmp_a = 16'hFFFF;
+		tmp_b = 16'h0000;
+		tmp_carry_in = 16'b0;
+		#1;
+		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
+		assert(tb_expected_outputs == tb_sum) begin
+			$info("Correct Sum value for test case 6a!");
+		end else begin
+			$error("Incorrect Sum value for test case ");
+		end
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+			$info("Correct Carry Out value for test case 6a!");
+		end else begin
+			$error("Incorrect Carry Out value for test case ");
+		end
+		tmp_b = 16'hFFFF;
 		tmp_a = 16'h0000;
 		tmp_carry_in = 16'b0;
 		#1;
 		tb_expected_outputs = tmp_a + tmp_b + tmp_carry_in;
-		if(tb_expected_outputs == tb_sum) begin
+		assert(tb_expected_outputs == tb_sum) begin
 			$info("Correct Sum value for test case 6b!");
-		//end else begin
-		//	$error("Incorrect Sum value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Sum value for test case ");
 		end
-		if(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
+		assert(tb_expected_outputs[TEST_CARRY_OUT_BIT] == tb_carry_out) begin
 			$info("Correct Carry Out value for test case 6b!");
-		//end else begin
-		//	$error("Incorrect Carry Out value for test case %d!", tb_test_case);
+		end else begin
+			$error("Incorrect Carry Out value for test case");
 		end
 	end
 	
