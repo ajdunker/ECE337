@@ -1,7 +1,10 @@
-// 337 TA Provided Lab 2 8-bit adder wrapper file template
-// This code serves as a template for the 8-bit adder design wrapper file 
-// STUDENT: Replace this message and the above header section with an
-// appropriate header based on your other code files
+// $Id: $
+// File name:   adder_8bit.sv
+// Created:     1/27/2016
+// Author:      Alexander Dunker
+// Lab Section: 337-04
+// Version:     1.0  Initial Design Entry
+// Description: 8-bit carry adder design
 
 module adder_8bit
 (

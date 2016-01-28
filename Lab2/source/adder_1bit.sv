@@ -16,6 +16,11 @@ module adder_1bit
 	output wire carry_out
 );
 
+always @ (a, b, carry_in)
+begin
+	assert(((a == 1'b1) || (a == 1'b0)) && ((b == 1'b1) || (b == 1'b0)) && ((carry_in == 1'b1) || (carry_in == 1'b0)))
+	else $error("Input 'a' of component is not a digital logic value");
+end
 
 assign sum = carry_in ^^ (a ^^ b);
 assign carry_out = ((~carry_in) && b && a) || (carry_in && (b || a));
