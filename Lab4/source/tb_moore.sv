@@ -11,7 +11,6 @@ module tb_moore();
 
 localparam	CLK_PERIOD	= 2.5;
 localparam	CHECK_DELAY	= 1;
-localparam	NUM_CNT_BITS	= 4;
 
 reg tb_clk;
 reg tb_n_rst;
