@@ -16,18 +16,18 @@ module sr_9bit
 	output wire stop_bit
 );
 
-	reg [8:0] par_out;
+	reg [8:0] parallel_out;
 
-	flex_stp_sr #(9,0) SHIFT_REG_9bit
+	flex_stp_sr #(9,0) SHIFT_REGISTER_9bit
 	(
 		.clk         (clk),
 		.n_rst       (n_rst),
 		.shift_enable(shift_strobe),
 		.serial_in   (serial_in),
-		.parallel_out(par_out)
+		.parallel_out(parallel_out)
 	);
 
-	assign stop_bit = par_out[8];
-	assign packet_data = par_out[7:0];
+	assign stop_bit = parallel_out[8];
+	assign packet_data = parallel_out[7:0];
 
 endmodule
