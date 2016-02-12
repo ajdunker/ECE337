@@ -1,0 +1,27 @@
+Alexander Dunker - Teamwork Report
+
+1.
+
+Alex Dunker - (5,5,5,5)
+Mitch Bouma - (5,5,5,5)
+Dan Suciu   - (5,5,5,5)
+
+2.
+
+Mitch, Dan and I worked for quite a while throughout the process of planning, coding, and debugging. Dan helped a lot in figuring out the control unit, Mitch with the planning of overall structure and integration, and myself with finding errors in previous implementation of the flex counter.
+
+3.
+
+We met on Wednesday for the beginning of the lab, and worked all day Thursday to finish up the lab. As well as assorted texts throughout this time.
+
+4.
+
+One of the biggest contributions I felt was helping my teammates remove latches from their code. Also helped finding old errors where our flex counter was previously incorrect.
+
+5.
+
+During our time a lot of time of development we were each experiences similar errors each of us had already encountered, so it was very easy for us to help eachother out in fixing ieach of those. As well as providing a second eye to pick out syntactical errors which were hard to see when you're stairing at the same code the entire time. Dan especially helped me in explaining a flip flop would be neccessary to have a properly working timer as it was missing from mine before. Mitch has a special knack for finding the missing end statements or a mispelled variable which sometimes wouldn't always cause an error but often a problem in the logic and execution.
+
+6.
+
+The test benches I used to help test my code were from Dan, and one he suggested from Piazza Yiheng Chil. They were quite helpful in writing some cases to test overall how my code worked.
