@@ -1,0 +1,37 @@
+Lab 5 Post Lab
+
+What is the minimum amount of time that data_ready must remain asserted to ensure correct operation? 
+
+5 clock cycles.
+
+What is the minimum amount of time, in clock cycles, that data must remain valid after data_ready is asserted in order to ensure correct operation?
+
+7 clock cycles.
+
+How are the image files different? Does this make sense given the filter design built in the lab?
+
+The filtered images only contain the data around the edges, this makes sense as this is where there is the most difference and in our lab we built a 4 sample average.
+
+What is the general syntax for each of the file IO functions used in the provided test bench (tb_fir_filter_image.sv)?
+
+It functions the same as stdio routines. You can prototype this code in C then convert it to Verilog.
+
+//open file
+integer file;
+file = $fopenr("filename");
+
+//End of file test
+reg eof;
+eof = $feof(file);
+
+//Read formatted text
+integer count;
+count = $fscanf(file, format, args);
+count = $sscanf(string, format, args);
+
+//close file
+r = $fcloser(file);
+
+What are the different format specifiers available for use in file functions like $fscanf(?)?
+
+b -- Binary values, d -- decimal values, o - octal values, h or x -- hexadecimal values, c -- single character, f -- floating point
