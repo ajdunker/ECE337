@@ -14,7 +14,7 @@ module fir_filter
    input wire [15:0]  fir_coefficient,
    input wire 	      data_ready,
    input wire 	      load_coeff,
-   input wire 	      one_k_samples,
+   output wire 	      one_k_samples,
    output wire 	      modwait,
    output wire [15:0] fir_out,
    output 	      err

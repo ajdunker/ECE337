@@ -15,10 +15,10 @@ module counter
 	output 	wire one_k_samples
 );
 
-flex_counter #(10) count1000
+flex_counter #(10) COUNT
 (
       .clk(clk),
-      .n_rst(n_rst),
+      .n_rst(n_reset),
       .clear(clear),
       .count_enable(cnt_up),
       .rollover_val(10'd1000),
