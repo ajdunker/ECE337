@@ -44,6 +44,14 @@ module controller
    
    always_comb 
      begin
+	op = 3'b000;
+	src1 = 4'b0000;
+	src2 = 4'b0000;
+	dest = 4'b0000;
+	err = 1'b0;
+	cnt_up = 1'b0;
+	clear = 1'b0;
+	
 	next = curr;
 	nxtMW = tmpMW;
 	
@@ -51,14 +59,15 @@ module controller
 	  IDLE : begin
 	     if (lc) begin
 		next = LOAD1;
+		nxtMW = 1;
 	     end else if (dr) begin
 		next = STORE;
+		nxtMW = 1;	
 	     end else begin
 		next = IDLE;
+		nxtMW = 0;
 	     end
 
-	     nxtMW = 0;
-	     	     
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
@@ -68,10 +77,10 @@ module controller
 	     clear = 1;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 1;
+	     nxtMW = 0;
 	     
 	     op = 3'b011;
-	     dest = 4'd2;
+	     dest = 4'd6;
 	     
 	     next = WAIT1;
 	  end
@@ -79,7 +88,7 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 0;
+	     nxtMW = 1;
 	     op = 3'b000;
 	     
 	     next = LOAD2;
@@ -88,10 +97,10 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 1;
+	     nxtMW = 0;
 	     
 	     op = 3'b011;
-	     dest = 4'd4;	     
+	     dest = 4'd7;	     
 	     
 	     next = WAIT2;
 	  end
@@ -99,7 +108,7 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 0;
+	     nxtMW = 1;
 	     op = 0;
 	     next = LOAD3;	     
 	  end
@@ -107,10 +116,10 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 1;
+	     nxtMW = 0;
 	     
 	     op = 3'b011;
-	     dest = 4'd6;	     
+	     dest = 4'd8;	     
 	     
 	     next = WAIT3;	     
 	  end
@@ -118,7 +127,7 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 0;
+	     nxtMW = 1;
 	     op = 0;
 	     next = LOAD4;	     
 	  end
@@ -126,10 +135,10 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 1;
+	     nxtMW = 0;
 	     
 	     op = 3'b011;
-	     dest = 4'd8;	     
+	     dest = 4'd9;	     
 	     	     
 	     next = WAIT4;	     
 	  end
@@ -137,10 +146,10 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     nxtMW = 0;
+	     nxtMW = 1;
 	     op = 0;
 	     
-	     next = STORE;
+	     next = IDLE;
 	  end
 	  STORE : begin
 	     if (dr) begin
@@ -150,10 +159,13 @@ module controller
 		next = EIDLE;
 		nxtMW = 0;
 	     end
+	     
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-	     op = 0;
+
+	     op = 3'b010;
+	     dest = 4'd5;
 	  end
 	  ZERO : begin
 	     clear = 0;
@@ -163,8 +175,8 @@ module controller
 	     
 	     op = 3'b101;
 	     dest = 4'd0;
-	     src1 = 4'd1;
-	     src2 = 4'd1;
+	     src1 = 4'd0;
+	     src2 = 4'd0;
 	
 	     next = SORT1;
 	  end
@@ -176,7 +188,7 @@ module controller
 
 	     op = 3'b001;
 	     dest = 4'd1;
-	     src1 = 4'd3;
+	     src1 = 4'd2;
 	     	     
 	     next = SORT2;	     
 	  end
@@ -187,8 +199,8 @@ module controller
 	     nxtMW = 1;
 
 	     op = 3'b001;
-	     dest = 4'd3;
-	     src1 = 4'd5;
+	     dest = 4'd2;
+	     src1 = 4'd3;
 	     
 	     next = SORT3;	     
 	  end
@@ -199,8 +211,8 @@ module controller
 	     nxtMW = 1;
 
 	     op = 3'b001;
-	     dest = 4'd5;
-	     src1 = 4'd7;
+	     dest = 4'd3;
+	     src1 = 4'd4;
 	     
 	     next = SORT4;	     
 	  end
@@ -211,8 +223,8 @@ module controller
 	     nxtMW = 1;
 
 	     op = 3'b001;
-	     dest = 4'd5;
-	     src1 = 4'd9;
+	     dest = 4'd4;
+	     src1 = 4'd5;
 	     
 	     next = MUL1;	     
 	  end
@@ -224,7 +236,7 @@ module controller
 
 	     op = 3'b110;
 	     src1 = 4'd1;
-	     src2 = 4'd2;
+	     src2 = 4'd6;
 	     dest = 4'd10;
 	     	     
 	     next = ADD1;	     
@@ -255,7 +267,7 @@ module controller
 
 	     op = 3'b110;
 	     src1 = 4'd2;
-	     src2 = 4'd3;
+	     src2 = 4'd7;
 	     dest = 4'd10;
 	     
 	     next = SUB1;	     
@@ -276,7 +288,7 @@ module controller
 	     op = 3'b101;
 	     src1 = 4'd0;
 	     src2 = 4'd10;
-	     dest = 4'd10;
+	     dest = 4'd0;
 	  end
 	  MUL3 : begin
 	     clear = 0;
@@ -285,8 +297,8 @@ module controller
 	     nxtMW = 1;
 
 	     op = 3'b110;
-	     src1 = 4'd4;
-	     src2 = 4'd5;
+	     src1 = 4'd3;
+	     src2 = 4'd8;
 	     dest = 4'd10;
 
 	     next = ADD2;
@@ -296,7 +308,7 @@ module controller
 		next = EIDLE;
 		nxtMW = 0;
 	     end else begin
-		next = MUL3;
+		next = MUL4;
 		nxtMW = 1;		
 	     end
 
@@ -305,8 +317,8 @@ module controller
 	     err = 0;
 
 	     op = 3'b100;
-	     src1 = 4'd10;
-	     src2 = 4'd0;
+	     src1 = 4'd0;
+	     src2 = 4'd10;
 	     dest = 4'd0;	     
 	  end
 	  MUL4 : begin
@@ -316,8 +328,8 @@ module controller
 	     nxtMW = 1;
 
 	     op = 3'b110;
-	     src1 = 4'd6;
-	     src2 = 4'd7;
+	     src1 = 4'd4;
+	     src2 = 4'd9;
 	     dest = 4'd10;
 
 	     next = SUB2;	     
@@ -325,17 +337,16 @@ module controller
 	  SUB2 : begin
 	     if (overflow) begin
 		next = EIDLE;
-		nxtMW = 0;		
+		nxtMW = 0;
 	     end else begin
-		cnt_up = 1;
-		nxtMW = 1;
 		next = IDLE;
+		nxtMW = 0;
 	     end
 
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 0;
-
+	     
 	     op = 3'b101;
 	     src1 = 4'd0;
 	     src2 = 4'd10;
@@ -353,7 +364,7 @@ module controller
 	     clear = 0;
 	     cnt_up = 0;
 	     err = 1;
-	     op = 0;
+	     op = 3'b000;
 	  end		
 	endcase // case (curr)
      end
