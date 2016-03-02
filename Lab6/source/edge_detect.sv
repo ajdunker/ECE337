@@ -24,6 +24,7 @@ module edge_detect
  	       
    always_ff @ (posedge clk, negedge n_rst) begin
       if(1'b0 == n_rst) begin
+	 prev <= 1;
 	 d_edge <= 0;
       end else begin
 	 prev <= d_plus;
