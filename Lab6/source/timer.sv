@@ -23,7 +23,7 @@ module timer
      (
       .clk(clk),
       .n_rst(n_rst),
-      .clear(d_edge),
+      .clear(d_edge | ~rcving),
       .count_enable(rcving),
       .rollover_val(4'd8),
       .count_out(count_o)
@@ -35,7 +35,7 @@ module timer
      (
       .clk(clk),
       .n_rst(n_rst),
-      .clear(!rcving | byte_received),
+      .clear(!rcving),
       .count_enable(shift_enable),
       .rollover_val(4'd8),
       .rollover_flag(byte_received)
