@@ -20,8 +20,11 @@ module usb_receiver
    output wire 	     r_error
    );
 
-   logic 	     d_plus_sync, d_minus_sync, d_edge, eop;
-
+   logic 	     d_plus_sync, d_minus_sync, d_edge, eop, shift_enable, byte_received;
+   logic [7:0] 	     rcv_data;
+   logic 	     d_orig, w_enable;
+	     
+   
    sync_high SH (
 		 .clk(clk),
 		 .n_rst(n_rst),
@@ -50,10 +53,45 @@ module usb_receiver
 		   );
 
    timer TM (
-	     
+	     .clk(clk),
+	     .n_rst(n_rst),
+	     .d_edge(d_edge),
+	     .rcving(rcving),
+	     .shift_enable(shift_enable),
+	     .byte_received(byte_received)
 	     );
+
+   shift_register SR (
+		      .clk(clk),
+		      .n_rst(n_rst),
+		      .shift_enable(shift_enable),
+		      .d_orig(d_orig),
+		      .rcv_data(rcv_data)
+		    );
+
+   rcu RCU (
+	    .clk(clk),
+	    .n_rst(n_rst),
+	    .d_edge(d_edge),
+	    .eop(eop),
+	    .shift_enable(shift_enable),
+	    .rcv_data(rcv_data),
+	    .byte_received(byte_received),
+	    .rcving(rcving),
+	    .w_enable(w_enable),
+	    .r_error(r_error)
+	    );
    
    
-   
+   rx_fifo RF (
+	       .clk(clk),
+	       .n_rst(n_rst),
+	       .r_enable(r_enable),
+	       .w_enable(w_enable),
+	       .w_data(rcv_data),
+	       .r_data(r_data),
+	       .empty(empty),
+	       .full(full)
+	       );
    
 endmodule // usb_receiver

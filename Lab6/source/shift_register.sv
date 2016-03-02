@@ -15,6 +15,13 @@ module shift_register
    output wire [7:0] rcv_data
    );
 
-   flex_st_sr #(.NUM_BITS(8), .SHIFT_MSB(1)) fss (.clk(clk), .n_rst(n_rst), .shift_enable(shift_enable), .parallel_out(rcv_data));
+   flex_stp_sr #(.NUM_BITS(8), .SHIFT_MSB(0)) FSS
+     (
+      .clk(clk), 
+      .n_rst(n_rst), 
+      .shift_enable(shift_enable), 
+      .serial_in(d_orig), 
+      .parallel_out(rcv_data)
+      );
    
 endmodule // shift_register
