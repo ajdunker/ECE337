@@ -16,39 +16,38 @@
 
 module decode
   (
-   input wire clk,
-   input wire n_rst,
-   input wire d_plus,
-   input wire shift_enable,
-   input wire eop,
-   output reg d_orig
+   input wire  clk,
+   input wire  n_rst,
+   input wire  d_plus,
+   input wire  shift_enable,
+   input wire  eop,
+   output wire d_orig
    );
    
-   logic      muxA, muxB, muxO, d_next;
+   logic       mux, muxO, dp;
    
    always_ff @ (posedge clk, negedge n_rst) begin
       if (1'b0 == n_rst) begin
-	 muxO <= 0;
-	 d_orig <= 1;
+	 dp <= 1;
+	 muxO <= 1;
       end else begin
-	 muxO <= muxB;
-	 d_orig <= d_next;
+	 muxO <= mux;
+	 dp <= d_plus;
       end
    end
-
+   
+   assign d_orig = ~(dp ^ muxO);
+   
    always_comb begin
       if (shift_enable) begin
-	 muxA = d_plus;
 	 if (eop) begin
-	    muxB = 1'b1;
+	    mux = 1'b1;
 	 end else begin
-	    muxB = muxA;
+	    mux = d_plus;
 	 end
       end else begin
-	 muxA = muxO;
-	 muxB = muxA;
+	 mux = muxO;
       end // else: !if(shift_enable)
-      d_next = ~(d_plus ^ muxO);
-   end
+   end // always_comb
    
-endmodule
+endmodule // decode
