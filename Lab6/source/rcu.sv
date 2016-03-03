@@ -81,7 +81,7 @@ module rcu
 	       end else begin
 		  nstate = RCV2;
 	       end
-	       if (shift_enable & eop) begin
+	       if (shift_enable && eop) begin
 		  nstate = EWAIT;
 	       end
 	       rcving = 1;
@@ -91,13 +91,13 @@ module rcu
 	  WBYTE:
 	    begin
 	       nstate = CONT;
-	       rcving = 0;
+	       rcving = 1;
 	       r_error = 0;
 	       w_enable = 1;
 	    end
 	  ESYNC:
 	    begin
-	       if(shift_enable & eop) begin
+	       if(shift_enable && eop) begin
 		  nstate = EWAIT;
 	       end else begin
 		  nstate = ESYNC;
@@ -128,7 +128,7 @@ module rcu
 	       end else begin
 		  nstate = CONT;
 	       end
-	       rcving = 0;
+	       rcving = 1;
 	       w_enable = 0;
 	       r_error = 0;
 	    end
@@ -150,6 +150,9 @@ module rcu
 	       end else begin
 		  nstate = EIDLE;
 	       end
+	       r_error = 1;
+	       rcving = 0;
+	       w_enable = 0;
 	    end
 	endcase // case (state)
      end

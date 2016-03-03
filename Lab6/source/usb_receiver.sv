@@ -46,7 +46,7 @@ module usb_receiver
 		   .d_edge(d_edge)
 		   );
 
-   eop_detect EOD (
+   eop_detect EOPD (
 		   .d_plus(d_plus_sync),
 		   .d_minus(d_minus_sync),
 		   .eop(eop)
@@ -93,5 +93,15 @@ module usb_receiver
 	       .empty(empty),
 	       .full(full)
 	       );
+
+   decode DC (
+	      .clk(clk),
+	      .n_rst(n_rst),
+	      .d_plus(d_plus),
+	      .shift_enable(shift_enable),
+	      .eop(eop),
+	      .d_orig(d_orig)
+	      );
+   
    
 endmodule // usb_receiver
