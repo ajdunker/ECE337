@@ -12,42 +12,24 @@ include /home/ecegrid/a/ece337/Course_Prod/course_make_vars
 # File Related Variables
 ##############################################################################
 
-# Fill in the appropriate filenames for the Phase 1 submodule code files (without the 'source/')
-# The contents of these variables must be plain text (no functions or variable references)
-EDGE_FILE			:= edge_detect.sv
-EOP_FILE			:= eop_detect.sv
-DECODE_FILE		:= decode.sv
-RX_FIFO_FILE	:= rx_fifo.sv
-
-# Fill in the appropriate filenames for the Phase 1 submodule test benches (without the 'source/')
-# The contents of these variables must either be plain text (no functions or variable references)
-# or references to the Phase 1 submodule code file variables
-TB_EDGE_FILE		:= tb_$(EDGE_FILE)
-TB_EOP_FILE			:= tb_$(EOP_FILE)
-TB_DECODE_FILE	:= tb_$(DECODE_FILE)
-TB_RX_FIFO_FILE	:= tb_$(RX_FIFO_FILE)
-
-# Fill in the names of any test bench helper code files (code files referenced by your testbenches
-# other than the actual design files)( do not include the 'source/') (filenames must start with 'tb_')
-TB_HELPER_FILES	:= 
-
 # List internal component/block files here (separate the filenames with spaces)
 # (do not include the source folder in the name)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
 # AND THE AUTOMATED GRADING SYSTEM
-# The contents of these variables must either be plain text (no functions or variable references)
-# or references to the Phase 1 submodule code file variables
-COMPONENT_FILES	:= $(EDGE_FILE) $(EOP_FILE) $(DECODE_FILE) $(RX_FIFO_FILE)
-COMPONENT_FILES += shift_register.sv rcu.sv timer.sv sync_low.sv sync_high.sv
-COMPONENT_FILES += flex_counter.sv flex_stp_sr.sv
+COMPONENT_FILES	:= 
 
 # Specify the name of the top level file (do not include the source folder in the name)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
 # AND THE AUTOMATED GRADING SYSTEM
-TOP_LEVEL_FILE	:= usb_receiver.sv
+TOP_LEVEL_FILE	:= lab7_layout_design.sv
 
-# Specify the filename of the test bench you want to use (without the 'source/')
+# Specify the filepath of the test bench you want to use (ie. tb_top_level.sv)
+# (do not include the source folder in the name)
 TEST_BENCH	:= tb_$(TOP_LEVEL_FILE)
+
+# Fill in the names of any test bench helper code files (code files referenced by your testbenches
+# other than the actual design files)( do not include the 'source/')
+TB_HELPER_FILES	:= 
 
 # Get the top level design and test_bench module names
 TB_MODULE		:= $(notdir $(basename $(TEST_BENCH)))
@@ -61,7 +43,7 @@ M_WORK_LIB := mapped_work
 
 LIB_CREATE	:= vlib
 COMPILE 		:= vlog -sv
-SIMULATE		:= vsim -Lf $(LABS_IP_LIB) -L $(GATE_LIB) +no_glitch_msg -coverage -voptargs="+acc"
+SIMULATE		:= vsim -Lf $(LABS_IP_LIB) -L $(GATE_LIB) -L $(GOLD_LIB) +no_glitch_msg -coverage -voptargs="+acc"
 DC_SHELL		:= dc_shell-t
 
 ##############################################################################

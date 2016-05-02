@@ -1,16 +1,12 @@
+if enable_timer:
+	start flex_counter to 10
+	if count = rollover:
+		shift_strobe = 1
 
-put enable_timer through a delay of 3 flip flips
-
-
-
-if enable_timer_delayed :
-enable flex_counter_10
-
-if (roll_over_flag_10 == 1) :
-shift_strobe = 1;
-increment flex_counter_9 //increment with shift_strobe;
-
-if(roll_over_flag_9 == 1) :
-packet_done = 1;
-
-**packet_done is the clear signal for both flex_counters
+if shift_strobe:
+	start flex_counter to 9
+	if count = rollover:
+		packet_done = 1
+		
+if packet_done:
+	clear count10 and count9
